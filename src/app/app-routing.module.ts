@@ -27,6 +27,7 @@ const routes: Routes = [
       }
       return true;
     }] },
+  { path: 'profile', component: ProfileComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: AuthenticationComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
