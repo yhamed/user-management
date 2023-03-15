@@ -7,9 +7,14 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './components/home/home.component';
+import {RegisterComponent} from "./components/register/register.component";
+import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
+import {ProfileComponent} from "./components/profile/profile.component";
 
 @NgModule({
   declarations: [
+    ProfileComponent,
+    RegisterComponent,
     AppComponent,
     AuthenticationComponent,
     HomeComponent
@@ -20,7 +25,7 @@ import { HomeComponent } from './components/home/home.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [   { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
