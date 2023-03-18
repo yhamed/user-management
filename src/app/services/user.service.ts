@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {TokenStorageService} from "./token.storage.service";
+import {AppSettings} from "../app.component";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-const USER_API = 'http://localhost:8080/api/user/';
+const USER_API = AppSettings.API_ENDPOINT + '/user/';
 
 
 @Injectable({

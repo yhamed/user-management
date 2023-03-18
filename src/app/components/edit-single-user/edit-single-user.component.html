@@ -2,7 +2,6 @@
   <div class="card card-container">
     <br/>
     <br/>
-    <br/>
     <form name="form"
           (ngSubmit)="f.form.valid && onSubmit()"
           #f="ngForm"
@@ -17,8 +16,7 @@
                [(ngModel)]="form.username"
                required
                minlength="3"
-               maxlength="20"
-               #username="ngModel"/>
+               maxlength="20"/>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
@@ -29,17 +27,20 @@
                name="email"
                [(ngModel)]="form.email"
                required
-               email
-               #email="ngModel"/>
+               email/>
       </div>
       <div>
         <br/>
         <strong>Current roles: </strong>
-        <span class="badge badge-primary">
-     ADMIN_ROLE</span>
-        <span class="badge badge-primary">
-     USER_ROLE</span>
-        <br/>
+        <span class="badge badge-primary"
+              *ngFor="let role of form?.roles;">
+              {{ role }}
+        </span>
+        <span class="badge badge-danger
+        rounded-pill d-inline"
+              *ngIf="form?.roles?.length === 0">
+              Suspended
+        </span>
         <br/>
       </div>
       <div class="form-group">
@@ -60,11 +61,16 @@
         </div>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary btn-block">Submit</button>
+        <button class="btn btn-primary btn-block">
+        Submit
+        </button>
       </div>
     </form>
     <div class="form-group">
-      <button class="btn btn-info btn-block" (click)="cancel()">Cancel</button>
+      <button class="btn btn-info btn-block"
+              (click)="cancel()">
+              Cancel
+      </button>
     </div>
   </div>
 </div>

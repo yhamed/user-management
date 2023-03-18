@@ -18,7 +18,6 @@
         <td>
           <p class="fw-normal mb-1">{{ user?.username}}</p>
         </td>
-
         <td>
           <div class="d-flex align-items-center">
             <div class="ms-3">
@@ -28,32 +27,46 @@
         </td>
 
         <td>
-          <span class="badge badge-primary role-option" *ngFor="let role of user.roles;">{{ role.name }}</span>
-          <span class="badge badge-danger rounded-pill d-inline" *ngIf="user?.roles?.length === 0">Suspended</span>
+          <span class="badge badge-primary role-option"
+                *ngFor="let role of user.roles;">
+                {{ role.name }}
+          </span>
+          <span class="badge badge-danger rounded-pill d-inline"
+                *ngIf="user?.roles?.length === 0">
+            Suspended
+          </span>
         </td>
         <td>
-          <button type="button" class="badge badge-primary d-inline action-btn" (click)="editUser(user)">
-            Change password
+          <button type="button"
+                  class="badge badge-primary d-inline action-btn"
+                  (click)="editUser(user)">
+                  Change password
           </button>
-          <button type="button" class="badge badge-warning d-inline action-btn" (click)="editRole(user)">
-            Edit Roles
+          <button type="button"
+                  class="badge badge-warning d-inline action-btn"
+                  (click)="editRole(user)">
+                  Edit Roles
           </button>
-          <button type="button" class="btn badge badge-danger action-btn" (click)="deleteUser(user?.id, user?.username)">
-            Delete
+          <button type="button"
+                  class="btn badge badge-danger action-btn"
+                  (click)="deleteUser(user?.id, user?.username)">
+                  Delete
           </button>
         </td>
-
       </tr>
       </tbody>
     </table>
-
     <div>
-      <app-edit-single-user [form]="form" *ngIf="form?.username" (cancelEvent)="cancel()"
-                            (submitUser)="submitPasswordChange($event)"></app-edit-single-user>
+      <app-edit-single-user [form]="form" *ngIf="form?.username"
+                            (cancelEvent)="cancel()"
+                            (submitUser)="submitPasswordChange($event)">
+      </app-edit-single-user>
       <div *ngIf="editRoles && !form?.username">
-        <header>Username: <strong>{{userToUpdate?.username}}</strong></header>
+        <header>
+          Username: <strong>{{userToUpdate?.username}}</strong>
+        </header>
         <br/>
-      <app-roles (roleEvent)="applyRoles($event)"></app-roles>
+        <app-roles (roleEvent)="applyRoles($event)"></app-roles>
       </div>
     </div>
   </div>

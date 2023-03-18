@@ -16,7 +16,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 # Notice:
 
 --------------------------------------------------------------------------------
-* A default user is created username: Admin and password: 123456 with the Admin role
-* First signUp user will also have the Admin role
-* If the user's token expires or is suspended he will be redirected to the LogIn screen
+* To configure the backend URL refer to the class AppSettings under app.component.ts
+* First signedUp user will also have the Admin role
+* If the user's token expires he will be redirected to the LogIn screen
+* If the user's or is suspended he will not be able to log In.
 * Accessing resources without having the level of grant required will redirect you to the Home screen
