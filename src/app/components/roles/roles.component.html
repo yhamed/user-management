@@ -1,0 +1,38 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <div class="form-group centered">
+      <ul class="list-unstyled list-item-space ripple-list">
+        <li>
+          <div class="pr-3">
+            <button type="button" class="btn btn-light" mdbRipple rippleColor="dark" (click)="grantAdminRole()"><span
+              class="badge badge-warning">
+               Attribute the ADMIN_ROLE</span></button>
+            <span class="text-muted small">
+                  <p>Offers the basic login and manage profile functionalities</p>
+                  </span>
+          </div>
+        </li>
+        <li>
+          <div class="pr-3">
+            <button type="button" class="btn btn-light" mdbRipple rippleColor="dark" (click)="grantUserRole()"><span
+              class="btn badge badge-primary">
+              Attribute the USER_ROLE</span></button>
+            <span class="text-muted small">
+                  <p>Offers the basic User authorities as well as User management option</p>
+                  </span>
+          </div>
+        </li>
+        <li>
+          <div class="pr-3">
+            <button type="button" class="btn btn-light" mdbRipple rippleColor="dark" (click)="suspend()"><span
+              class="btn badge badge-danger">
+                Suspend this account</span></button>
+            <span class="text-muted small">
+                  <p>Offers the basic User authorities as well as User management option</p>
+                  </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
