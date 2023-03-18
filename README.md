@@ -1,5 +1,6 @@
 # UserManagementWeb
-Frontend with JWT for user management with spring boot backend
+Frontend with JWT for user management with spring boot backend.
+Default backend url is http://localhost:8080
 
 ## Run the application
 ```
@@ -17,7 +18,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 --------------------------------------------------------------------------------
 * To configure the backend URL refer to the class AppSettings under app.component.ts
-* First signedUp user will also have the Admin role
+* First signedUp user will have the Admin role
 * If the user's token expires he will be redirected to the LogIn screen
 * If the user's or is suspended he will not be able to log In.
 * Accessing resources without having the level of grant required will redirect you to the Home screen
