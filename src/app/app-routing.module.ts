@@ -35,11 +35,11 @@ function isConnectedUserGuard() {
     const tokenStorageService: TokenStorageService = inject(TokenStorageService);
     if (tokenStorageService?.getToken() === null) {
       toast.warning("Authentication","You have been logged out.");
-      router.navigate(['login'], {state: {reset: true}});
+      router.navigate(['./login'], {state: {reset: true}});
       return false;
     }
     if (inject(JwtHelperService)?.isTokenExpired(tokenStorageService?.getToken())) {
-      router.navigate(['login'], {state: {reset: true}});
+      router.navigate(['./login'], {state: {reset: true}});
       tokenStorageService.signOut();
       toast.warning("Session has expired","Please proceed to login.");
       return false;
@@ -56,7 +56,7 @@ function isAdminGuard() {
     const tokenStorageService: TokenStorageService = inject(TokenStorageService);
     const router: Router = inject(Router);
     if (inject(JwtHelperService)?.isTokenExpired(tokenStorageService?.getToken())) {
-      router?.navigate(['login'], {state: {reset: true}});
+      router?.navigate(['./login'], {state: {reset: true}});
       tokenStorageService.signOut();
       toast.warning("Session has expired","Please proceed to login.");
       return false;
@@ -66,13 +66,13 @@ function isAdminGuard() {
     }
 
     toast.error("Unauthorized","You don't have the authority to access this resource");
-    router?.navigate(['home'], {state: {reset: true}});
+    router?.navigate(['./home'], {state: {reset: true}});
     return false;
   }];
 }
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
