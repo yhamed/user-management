@@ -6,7 +6,7 @@ Default backend url is http://localhost:8080
 On Docker:
 * Create the user-management-web docker image:
 ```
-* docker build -t user-management-web .
+docker build -t user-management-web .
 ```
 * Run a container of user-management-web:
 ```
